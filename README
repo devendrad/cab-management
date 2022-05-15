@@ -1,0 +1,48 @@
+Onboard a city:
+curl -X POST "http://localhost:8080/cab-management/v1/city" -H "Content-Type: application/json" -d '{"cities":[{"id":"PUNE","name":"Pune"},{"id":"BANGALORE","name":"Bangalore"}]}'
+curl -X POST "http://localhost:8080/cab-management/v1/city" -H "Content-Type: application/json" -d '{"cities":[{"id":"DELHI","name":"Delhi"}]}'
+
+Get all onboarded cities:
+curl -X GET "http://localhost:8080/cab-management/v1/city" -H "Content-Type: application/json"
+
+Register a cab:
+curl -X POST "http://localhost:8080/cab-management/v1/cab" -H "Content-Type: application/json" -d '{"cab_id": "MH12OP3245", "location_city_id": "PUNE", "state":"IDLE"}'
+
+Get current details of all registered cabs:
+curl -X GET "http://localhost:8080/cab-management/v1/cab"
+curl -X GET "http://localhost:8080/cab-management/v1/cab/MH12OP3245"
+
+Change cab current city:
+curl -X PUT "http://localhost:8080/cab-management/v1/cab" -H "Content-Type: application/json" -d '{"cab_id": "MH12OP3245", "new_location_city_id": "DELHI"}'
+
+Change cab current city:
+curl -X PUT "http://localhost:8080/cab-management/v1/cab" -H "Content-Type: application/json" -d '{"cab_id": "MH12OP3245", "new_cab_state": "ON_TRIP"}'
+
+View Cab Insights:
+curl -X GET "http://localhost:8080/cab-management/v1/cab-insights/MH12OP3245"
+
+View Cab history:
+curl -X GET "http://localhost:8080/cab-management/v1/cab-history/MH12OP3245"
+
+Book a cab:
+curl -X POST "http://localhost:8080/cab-management/v1/cab-booking" -H "Content-Type: application/json" -d '{"from_city_id": "PUNE", "to_city_id": "PUNE"}'
+curl -X POST "http://localhost:8080/cab-management/v1/cab-booking" -H "Content-Type: application/json" -d '{"from_city_id": "PUNE", "to_city_id": "BANGALORE"}'
+curl -X POST "http://localhost:8080/cab-management/v1/cab-booking" -H "Content-Type: application/json" -d '{"from_city_id": "DELHI", "to_city_id": "BANGALORE"}'
+
+Top 5 cities with highest bookings:
+curl -X GET "http://localhost:8080/cab-management/v1/cab-booking-top-cities"
+
+
+One time tests:
+
+curl -X POST "http://localhost:8080/cab-management/v1/city" -H "Content-Type: application/json" -d '{"cities":[{"id":"PUNE","name":"Pune"},{"id":"BANGALORE","name":"Bangalore"}]}'
+curl -X POST "http://localhost:8080/cab-management/v1/city" -H "Content-Type: application/json" -d '{"cities":[{"id":"DELHI","name":"Delhi"}]}'
+curl -X POST "http://localhost:8080/cab-management/v1/cab" -H "Content-Type: application/json" -d '{"cab_id": "MH12OP3245", "location_city_id": "PUNE", "state":"IDLE"}'
+curl -X PUT "http://localhost:8080/cab-management/v1/cab" -H "Content-Type: application/json" -d '{"cab_id": "MH12OP3245", "new_location_city_id": "DELHI"}'
+curl -X PUT "http://localhost:8080/cab-management/v1/cab" -H "Content-Type: application/json" -d '{"cab_id": "MH12OP3245", "new_cab_state": "ON_TRIP"}'
+curl -X GET "http://localhost:8080/cab-management/v1/cab-insights/MH12OP3245"
+curl -X PUT "http://localhost:8080/cab-management/v1/cab" -H "Content-Type: application/json" -d '{"cab_id": "MH12OP3245", "new_cab_state": "IDLE"}'
+curl -X GET "http://localhost:8080/cab-management/v1/cab-insights/MH12OP3245"
+curl -X GET "http://localhost:8080/cab-management/v1/cab-history/MH12OP3245"
+curl -X POST "http://localhost:8080/cab-management/v1/cab-booking" -H "Content-Type: application/json" -d '{"from_city_id": "DELHI", "to_city_id": "BANGALORE"}'
+curl -X GET "http://localhost:8080/cab-management/v1/cab-booking-top-cities"
