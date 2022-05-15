@@ -1,3 +1,10 @@
+Run the app by running the main file 'com.interstatecab.CabManagementPortal' manually 
+        OR
+By running '.gradlew' and then 'gradle run'
+        OR
+By running the shadow jar file 'java -jar cab-management-all.jar' (build/lib)
+
+
 Onboard a city:
 curl -X POST "http://localhost:8080/cab-management/v1/city" -H "Content-Type: application/json" -d '{"cities":[{"id":"PUNE","name":"Pune"},{"id":"BANGALORE","name":"Bangalore"}]}'
 curl -X POST "http://localhost:8080/cab-management/v1/city" -H "Content-Type: application/json" -d '{"cities":[{"id":"DELHI","name":"Delhi"}]}'
